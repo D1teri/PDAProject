@@ -17,16 +17,28 @@ public class PDA
     
     public void runEventLoop() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("You can quit the program by entering 0"); 
         int age = 0;
-        int LOWER_BOUND = 0;
-        while(true){
+        int LOWER_BOUND = 18;
+        int lower = 0;
+        int higher = 0;
+        boolean shouldContinue = true;
+        while(shouldContinue){
             System.out.println("How old are you?");
             try {
                 age = scanner.nextInt();
-                if (age < LOWER_BOUND) {
+                if (age < LOWER_BOUND && age != 0) {
                     System.out.println(age+" is too young!!");
-                } else {
-                    System.out.println("Computations go here");                
+                } else if(age == 0){
+                    shouldContinue = false;           
+                }else{
+                    lower = (age/2)+7;
+                    if(lower < 18) lower = 18;
+                    
+                    higher = (age - 7) * 2;
+                    
+                    System.out.println("You can marry a person in the interval between "
+                    + lower + " and " + higher +" years old."); 
                 }
 
             } catch (InputMismatchException error) {
