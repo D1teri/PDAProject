@@ -19,9 +19,10 @@ public class PDA
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can quit the program by entering 0"); 
         int age = 0;
-        int LOWER_BOUND = 18;
+        int LOWER_BOUND = 0;
         int lower = 0;
         int higher = 0;
+        int rel = 0;
         boolean shouldContinue = true;
         while(shouldContinue){
             System.out.println("How old are you?");
@@ -32,11 +33,14 @@ public class PDA
                 } else if(age == 0){
                     shouldContinue = false;           
                 }else{
-                    lower = (age/2)+7;
-                    if(lower < 18) lower = 18;
-                    
-                    higher = (age - 7) * 2;
-                    
+                    if(age >= 15){
+                        lower = (age/2)+7;
+                        higher = (age - 7) * 2;
+                    }
+                    else{                       
+                        lower = age - 1;
+                        higher = age + 1;
+                    }
                     System.out.println("You can marry a person in the interval between "
                     + lower + " and " + higher +" years old."); 
                 }
