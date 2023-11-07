@@ -33,15 +33,15 @@ public class PDA
                 } else if(age == 0){
                     shouldContinue = false;           
                 }else{
-                    if(age >= 15){
+                    if(age >= 14){
                         lower = (age/2)+7;
                         higher = (age - 7) * 2;
                     }
                     else{                       
-                        lower = age - 1;
-                        higher = age + 1;
+                        lower = age - 1/2;
+                        higher = age + 1/2;
                     }
-                    System.out.println("You can marry a person in the interval between "
+                    System.out.println("You can date a person in the interval between "
                     + lower + " and " + higher +" years old."); 
                 }
 
