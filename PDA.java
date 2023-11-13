@@ -19,7 +19,7 @@ public class PDA
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can quit the program by entering 0"); 
         int age = 0;
-        int LOWER_BOUND = 0;
+        int LOWER_BOUND = 14;
         int lower = 0;
         int higher = 0;
         int rel = 0;
@@ -33,14 +33,14 @@ public class PDA
                 } else if(age == 0){
                     shouldContinue = false;           
                 }else{
-                    if(age >= 14){
-                        lower = (age/2)+7;
-                        higher = (age - 7) * 2;
-                    }
-                    else{                       
-                        lower = age - 1/2;
-                        higher = age + 1/2;
-                    }
+                    lower = (age/2)+7;
+                    higher = (age - 7) * 2;
+                    
+                    int lowerd = ((age*10)/2)+70;
+                    int higherd = ((age*10)+70)/2;
+                    if(lowerd > (lower * 10)) lower += 1;
+                    if(higherd < (higher * 10)) higher -= 1;
+                    
                     System.out.println("You can date a person in the interval between "
                     + lower + " and " + higher +" years old."); 
                 }
