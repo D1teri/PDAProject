@@ -22,24 +22,30 @@ public class PDA
         int LOWER_BOUND = 14;
         int lower = 0;
         int higher = 0;
-        int rel = 0;
+        
+        double a = 0.0;
+        double l = 0.0;
+        double h = 0.0;
+        
         boolean shouldContinue = true;
         while(shouldContinue){
             System.out.println("How old are you?");
             try {
-                age = scanner.nextInt();
+                age = scanner.nextInt();               
                 if (age < LOWER_BOUND && age != 0) {
                     System.out.println(age+" is too young!!");
                 } else if(age == 0){
                     shouldContinue = false;           
                 }else{
-                    lower = (age/2)+7;
+                    a = age;
+                    l = (a/2) + 7;
+                    h = (a - 7) * 2;
+                    lower = (age / 2) + 7;
                     higher = (age - 7) * 2;
                     
-                    int lowerd = ((age*10)/2)+70;
-                    int higherd = ((age*10)+70)/2;
-                    if(lowerd > (lower * 10)) lower += 1;
-                    if(higherd < (higher * 10)) higher -= 1;
+                    if(l > lower) lower += 1;
+                    
+                    if(h < higher) higher -= 1;
                     
                     System.out.println("You can date a person in the interval between "
                     + lower + " and " + higher +" years old."); 
